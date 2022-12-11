@@ -5,6 +5,7 @@ import { colors } from '../../../theme/colors';
 import Button from '../../atoms/button/Button';
 import Text from '../../atoms/Text/Text';
 import PropTypes from 'prop-types';
+import { borderRadius } from '../../../theme/radiusses';
 
 const ModalComponent = ({ isVisible, onClose, isLoading, text }) => {
 	return (
@@ -63,5 +64,5 @@ const StyledModal = styled.View`
 		return isLoading ? 'center' : 'space-around';
 	}};
 	padding: 20px;
-	border-radius: 10px;
+	border-radius: ${borderRadius.medium};
 `;
