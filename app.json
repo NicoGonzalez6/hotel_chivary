@@ -1,33 +1,36 @@
 {
-  "expo": {
-    "name": "hotel-chivari",
-    "slug": "hotel-chivari",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
-  }
+	"expo": {
+		"name": "hotel-chivari",
+		"slug": "hotel-chivari",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./src/assets/splash/Logo_final.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#FFFFFF"
+		},
+		"updates": {
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#FFFFFF"
+			}
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"clientId": "2smo0pqjadagblpgnfs3evi037",
+			"clientSecret": "p6522a7go61sk9idvlrv7ba31rn5m99eo02j4qk2mek08ig18rc",
+			"API": "https://7njkesc284.execute-api.us-east-1.amazonaws.com/develop/api/v1"
+		}
+	}
 }
