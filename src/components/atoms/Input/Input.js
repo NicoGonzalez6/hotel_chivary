@@ -62,7 +62,7 @@ const StyledInput = styled.TextInput`
 			return `1px solid ${colors.inputBorders}`;
 		}
 	}};
-	padding: ${spacing.inputs.medium};
+	padding: ${spacing.medium};
 	font-family: ${fontTypes.montserrat};
 	border-radius: ${borderRadius.medium};
 `;

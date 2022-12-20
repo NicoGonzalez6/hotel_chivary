@@ -1,9 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import Forgot from './src/screens/auth/forgotPassword/Forgot';
 import Login from './src/screens/auth/login/Login';
 import Register from './src/screens/auth/register/Register';
-
 import HomeScreen from './src/screens/home/HomeScreen';
+import Header from './src/containers/header/Header';
+import { useState } from 'react';
 
 export const AppContainer = ({
 	onLayoutRootView,
@@ -33,7 +35,12 @@ export const AppContainer = ({
 					options={{ headerShown: false }}
 					component={Forgot}
 				/>
-				<Stack.Screen name='home' options={{ headerShown: false }}>
+				<Stack.Screen
+					name='home'
+					options={{
+						header: () => <Header userInfo={userInfo} />,
+					}}
+				>
 					{(props) => (
 						<HomeScreen {...props} onLayout={onLayoutRootView} />
 					)}

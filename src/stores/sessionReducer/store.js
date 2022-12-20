@@ -9,10 +9,6 @@ const sessionReducer = createSlice({
 			state.user = action.payload;
 			state.isLogged = true;
 		},
-		saveUser: (state, action) => {
-			state.user = action.payload;
-			state.isLogged = true;
-		},
 		deleteUser: (state) => {
 			state.user = undefined;
 			state.isLogged = false;
@@ -22,4 +18,4 @@ const sessionReducer = createSlice({
 
 export default sessionReducer.reducer;
 
-export const { loginUser, saveUser, deleteUser } = sessionReducer.actions;
+export const { loginUser, deleteUser } = sessionReducer.actions;

@@ -9,7 +9,7 @@ import { useAsyncStorage } from './src/hooks/useAsyncStorage';
 import { asyncTypes } from './src/constants/types/asyncTypes';
 import { getUserInfo } from './src/services';
 import { deleteUser } from './src/stores/sessionReducer/store';
-import { saveUser } from './src/stores/sessionReducer/store';
+import { loginUser } from './src/stores/sessionReducer/store';
 
 export default function App() {
 	//Main App
@@ -55,13 +55,14 @@ const AppController = () => {
 		if (userInfo) {
 			await getUserInfo(userInfo.id, tokenInfo.idToken)
 				.then((user) => {
-					Dispatch(saveUser(user));
+					Dispatch(loginUser(user));
 				})
 				.catch((err) => {
 					useAsyncStorage(asyncTypes.remove, '', 'user');
 					useAsyncStorage(asyncTypes.remove, '', 'tokens');
 				});
 
+			// Then tell the application to render
 			return setAppIsReady(true);
 		}
 
@@ -69,10 +70,9 @@ const AppController = () => {
 			await Dispatch(deleteUser());
 			await useAsyncStorage(asyncTypes.remove, '', 'tokens');
 			await useAsyncStorage(asyncTypes.remove, '', 'user');
-
+			// Then tell the application to render
 			return setAppIsReady(true);
 		}
-		// Then tell the application to render
 	}
 
 	// To handle the fonts load

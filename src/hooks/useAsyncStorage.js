@@ -25,6 +25,7 @@ const getData = async (keyName) => {
 	}
 };
 
+//Remove Async store data
 const removeData = async (keyName) => {
 	try {
 		await AsyncStorage.removeItem(keyName);
