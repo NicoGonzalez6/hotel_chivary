@@ -8,6 +8,8 @@ import Header from './src/containers/header/Header';
 import InternetAcces from './src/screens/internetAccess/InternetAcces';
 import { colors } from './src/theme/colors';
 import { fontTypes } from './src/theme/fonts';
+import { View } from 'react-native';
+import SimpleHeader from './src/containers/simpleHeader/SimpleHeader';
 
 export const AppContainer = ({
 	onLayoutRootView,
@@ -25,6 +27,7 @@ export const AppContainer = ({
 					title: 'Acceso a internet',
 					headerStyle: {
 						backgroundColor: colors.primary,
+						hieght: 150,
 					},
 					headerTintColor: colors.white,
 					headerTitleStyle: {
@@ -59,7 +62,17 @@ export const AppContainer = ({
 						<HomeScreen {...props} onLayout={onLayoutRootView} />
 					)}
 				</Stack.Screen>
-				<Stack.Screen name='internet'>
+				<Stack.Screen
+					name='internet'
+					options={{
+						header: (props) => (
+							<SimpleHeader
+								title='Acceso a internet'
+								{...props}
+							/>
+						),
+					}}
+				>
 					{(props) => <InternetAcces {...props} />}
 				</Stack.Screen>
 			</Stack.Navigator>
