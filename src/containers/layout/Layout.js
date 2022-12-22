@@ -17,7 +17,6 @@ const StyledContainer = styled.View`
 	background-color: ${colors.white};
 	position: relative;
 	overflow: hidden;
-	z-index: 10000;
 	padding: ${({ withHeader }) => {
 		return withHeader
 			? `${spacing.container.layoutHeader}`

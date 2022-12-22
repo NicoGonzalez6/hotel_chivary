@@ -78,7 +78,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
 	shadow: {
 		width: '100%',
-		maxHeight: 200,
+		maxHeight: 210,
 		shadowColor: '#000',
 		shadowOffset: {
 			width: 0,
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 2.2,
 		shadowRadius: 1.41,
-		elevation: 1.9,
-		borderRadius: 1,
+		elevation: 2,
+		borderRadius: 2,
 		flexDirection: 'column',
 	},
 });
@@ -106,7 +106,7 @@ const ColumnContainer = styled.View`
 `;
 
 const HeroContainer = styled.View`
-	height: 115px;
+	height: 125px;
 	position: relative;
 `;
 
@@ -116,8 +116,8 @@ const StyledHeroTextContainer = styled.View`
 	width: 110px;
 	border: 2px solid ${colors.white};
 	border-radius: 50px;
-	right: 20px;
-	top: 8px;
+	right: 15px;
+	top: 10px;
 	background-color: rgba(65, 231, 231, 0.9);
 	align-items: center;
 	justify-content: center;
@@ -127,12 +127,11 @@ const StyledHeroTextContainer = styled.View`
 const StyledImage = styled.Image`
 	width: 100%;
 	height: 100%;
-	position: absolute;
 	border-radius: 10px;
 `;
 
 const PromoContainer = styled.View`
-	height: 170px;
+	height: 180px;
 	flex-direction: column;
 `;
 
@@ -143,10 +142,8 @@ const TitlePromoContainer = styled.View`
 
 const PromoContainersList = styled.View`
 	height: 80%;
-	background-color: red;
 `;
 
 const ShareLinkContainer = styled.View`
 	height: 60px;
-	background-color: yellow;
 `;

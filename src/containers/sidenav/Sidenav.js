@@ -18,24 +18,33 @@ import userId from '../../assets/icons/userid.png';
 import userDocs from '../../assets/icons/docs.png';
 import secureUser from '../../assets/icons/security.png';
 import router from '../../assets/icons/router.png';
-import Button from '../../components/atoms/button/Button';
 import questionUser from '../../assets/icons/question.png';
 import LinksWithIcon from '../../components/molecules/LinksWithIcon/LinksWithIcon';
 
-const Sidenav = ({ fadeAnimation, indexAnimation, userInfo, onClose }) => {
-	const height = Dimensions.get('window').height;
+const Sidenav = ({
+	fadeAnimation,
+	indexAnimation,
+	userInfo,
+	onClose,
+	show,
+}) => {
+	const height = Dimensions.get('screen').height;
+	const width = Dimensions.get('screen').width;
 
 	return (
 		<Animated.View
 			style={[
-				styles(height).fadingContainer,
+				styles(height, width, show).fadingContainer,
 				{
 					opacity: fadeAnimation,
 					zIndex: indexAnimation,
 				},
 			]}
 		>
-			<TouchableOpacity style={[styles(height).fading]} activeOpacity={1}>
+			<TouchableOpacity
+				style={[styles(height, width, show).fading]}
+				activeOpacity={1}
+			>
 				<Header>
 					<HeaderCenter>
 						<HeaderUser>
@@ -92,7 +101,15 @@ const Sidenav = ({ fadeAnimation, indexAnimation, userInfo, onClose }) => {
 						/>
 					</UserLinks>
 					<SessionLinks>
-						<Button>Cerrar sesion</Button>
+						<Text textType='text' textColor='text'>
+							Preguntas frecuentes
+						</Text>
+						<Text textType='text' textColor='text'>
+							Calificar en store
+						</Text>
+						<Text textType='text' textColor='linkText'>
+							Cerrar sesion
+						</Text>
 					</SessionLinks>
 				</LinksContainer>
 			</TouchableOpacity>
@@ -102,20 +119,21 @@ const Sidenav = ({ fadeAnimation, indexAnimation, userInfo, onClose }) => {
 
 export default Sidenav;
 
-const styles = (props) => {
+const styles = (height, width, show) => {
 	return StyleSheet.create({
 		fadingContainer: {
 			position: 'absolute',
-			width: '110%',
+			width: width,
 			top: 0,
 			left: 0,
+			display: show ? 'flex' : 'none',
 		},
 		fading: {
 			backgroundColor: 'white',
+			width: width,
 			position: 'absolute',
-			width: '101%',
 			flexDirection: 'column',
-			minHeight: props,
+			minHeight: height,
 		},
 	});
 };
@@ -156,14 +174,18 @@ const ImageContainer = styled.View`
 
 const LinksContainer = styled.View`
 	padding: 10px 20px;
+	flex: 1;
+	flex-direction: column;
 `;
 
 const UserLinks = styled.View`
-	height: 80%;
 	margin-bottom: ${spacing.small};
+	height: 75%;
 `;
 
 const SessionLinks = styled.View`
-	height: 20%;
 	align-items: center;
+	height: 15%;
+	justify-content: space-around;
+	align-items: flex-start;
 `;

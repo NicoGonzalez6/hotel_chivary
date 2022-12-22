@@ -11,6 +11,7 @@ import { Animated } from 'react-native';
 const Header = ({ userInfo }) => {
 	const [fadeAnimation] = useState(new Animated.Value(0));
 	const [indexAnimation] = useState(new Animated.Value(0));
+	const [show, setShow] = useState(false);
 
 	const fadeIn = () => {
 		Animated.timing(fadeAnimation, {
@@ -47,6 +48,11 @@ const Header = ({ userInfo }) => {
 	const closeHandler = () => {
 		fadeOut();
 		indexOut();
+		setShow(!show);
+	};
+
+	const showHandler = () => {
+		setShow(!show);
 	};
 
 	return (
@@ -56,10 +62,13 @@ const Header = ({ userInfo }) => {
 				indexAnimation={indexAnimation}
 				userInfo={userInfo}
 				onClose={closeHandler}
+				show={show}
 			/>
+
 			<StyledMenu>
 				<Touchable
 					onPress={() => {
+						showHandler();
 						fadeIn();
 						indexIn();
 					}}
@@ -93,7 +102,6 @@ const StyledView = styled.View`
 	flex-direction: row;
 	align-items: flex-end;
 	justify-content: space-between;
-	position: relative;
 `;
 
 const StyledMenu = styled.View`
