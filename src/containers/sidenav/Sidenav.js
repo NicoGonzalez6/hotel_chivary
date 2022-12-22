@@ -18,7 +18,6 @@ import userId from '../../assets/icons/userid.png';
 import userDocs from '../../assets/icons/docs.png';
 import secureUser from '../../assets/icons/security.png';
 import router from '../../assets/icons/router.png';
-import questionUser from '../../assets/icons/question.png';
 import LinksWithIcon from '../../components/molecules/LinksWithIcon/LinksWithIcon';
 
 const Sidenav = ({
@@ -27,6 +26,7 @@ const Sidenav = ({
 	userInfo,
 	onClose,
 	show,
+	navigation,
 }) => {
 	const height = Dimensions.get('screen').height;
 	const width = Dimensions.get('screen').width;
@@ -92,22 +92,31 @@ const Sidenav = ({
 							textType={textTypes.text}
 							textColor='black'
 							flexType='row'
-						/>
-						<LinksWithIcon
-							icon={questionUser}
-							text={'Preguntas frecuentes'}
-							textType={textTypes.text}
-							textColor='black'
+							onPress={() => {
+								onClose(), navigation.navigate('internet');
+							}}
 						/>
 					</UserLinks>
 					<SessionLinks>
-						<Text textType='text' textColor='text'>
+						<Text
+							textType='text'
+							textColor='text'
+							onPress={() => alert('Preguntas frecuentes')}
+						>
 							Preguntas frecuentes
 						</Text>
-						<Text textType='text' textColor='text'>
+						<Text
+							textType='text'
+							textColor='text'
+							onPress={() => alert('Calificar en store')}
+						>
 							Calificar en store
 						</Text>
-						<Text textType='text' textColor='linkText'>
+						<Text
+							textType='text'
+							textColor='linkText'
+							onPress={() => alert('Cerrar sesion')}
+						>
 							Cerrar sesion
 						</Text>
 					</SessionLinks>

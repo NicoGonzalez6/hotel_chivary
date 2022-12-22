@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colors } from '../../../theme/colors';
 import { fontTypes } from '../../../theme/fonts';
 import { spacing } from '../../../theme/spacing';
@@ -16,10 +16,14 @@ const Input = ({
 	value,
 	secureTextEntry,
 	onBlur,
+	textAlign,
+	boldValue = false,
 }) => {
 	return (
 		<StyledView>
 			<StyledInput
+				boldValue={boldValue}
+				textAlign={textAlign}
 				secureTextEntry={secureTextEntry}
 				placeholder={placeholder}
 				onChangeText={onChangeText}
@@ -46,6 +50,8 @@ Input.propTypes = {
 	onBlur: PropTypes.func,
 	value: PropTypes.any,
 	secureTextEntry: PropTypes.bool,
+	textAlign: PropTypes.string,
+	boldValue: PropTypes.bool,
 };
 
 export default Input;
@@ -65,4 +71,19 @@ const StyledInput = styled.TextInput`
 	padding: ${spacing.medium};
 	font-family: ${fontTypes.montserrat};
 	border-radius: ${borderRadius.medium};
+	${({ textAlign }) => {
+		if (textAlign) {
+			return css`
+				text-align: ${textAlign};
+			`;
+		}
+	}}
+
+	${({ boldValue }) => {
+		if (boldValue) {
+			return css`
+				font-family: ${fontTypes.montserrat_bold};
+			`;
+		}
+	}}
 `;

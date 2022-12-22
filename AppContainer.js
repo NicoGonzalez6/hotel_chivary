@@ -5,7 +5,9 @@ import Login from './src/screens/auth/login/Login';
 import Register from './src/screens/auth/register/Register';
 import HomeScreen from './src/screens/home/HomeScreen';
 import Header from './src/containers/header/Header';
-import { useState } from 'react';
+import InternetAcces from './src/screens/internetAccess/InternetAcces';
+import { colors } from './src/theme/colors';
+import { fontTypes } from './src/theme/fonts';
 
 export const AppContainer = ({
 	onLayoutRootView,
@@ -19,6 +21,16 @@ export const AppContainer = ({
 		return (
 			<Stack.Navigator
 				initialRouteName={isLogged && userInfo ? 'home' : 'login'}
+				screenOptions={{
+					title: 'Acceso a internet',
+					headerStyle: {
+						backgroundColor: colors.primary,
+					},
+					headerTintColor: colors.white,
+					headerTitleStyle: {
+						fontFamily: fontTypes.montserrat_bold,
+					},
+				}}
 			>
 				<Stack.Screen name='login' options={{ headerShown: false }}>
 					{(props) => (
@@ -38,12 +50,17 @@ export const AppContainer = ({
 				<Stack.Screen
 					name='home'
 					options={{
-						header: () => <Header userInfo={userInfo} />,
+						header: (props) => (
+							<Header userInfo={userInfo} {...props} />
+						),
 					}}
 				>
 					{(props) => (
 						<HomeScreen {...props} onLayout={onLayoutRootView} />
 					)}
+				</Stack.Screen>
+				<Stack.Screen name='internet'>
+					{(props) => <InternetAcces {...props} />}
 				</Stack.Screen>
 			</Stack.Navigator>
 		);

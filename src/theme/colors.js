@@ -9,4 +9,5 @@ export const colors = {
 	text: '#495057',
 	inputBorders: '#DEE2E6',
 	transparent: 'transparent',
+	backgroundWhite: '#f4f4f4',
 };

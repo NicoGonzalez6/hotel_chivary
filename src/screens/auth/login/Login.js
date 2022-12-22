@@ -18,6 +18,7 @@ import { useAsyncStorage } from '../../../hooks/useAsyncStorage';
 import { asyncTypes } from '../../../constants/types/asyncTypes';
 import { loginUser } from '../../../stores/sessionReducer/store';
 import { logoTypes } from '../../../constants/types/logoTypes';
+import { textTypes } from '../../../constants/types/textTypes';
 
 const Login = ({ navigation, onLayout }) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -96,15 +97,15 @@ const Login = ({ navigation, onLayout }) => {
 					</Button>
 				</ButtonContainers>
 				<RegisterContainer>
-					<Text textType='text' textColor='black'>
+					<Text textType={textTypes.text} textColor='black'>
 						¿No tenes cuenta?
 					</Text>
-					<Text textType='text' textColor='linkText'>
+					<Text textType={textTypes.text} textColor='linkText'>
 						{` `}
 					</Text>
 					<Text
 						onPress={() => navigation.navigate('register')}
-						textType='text'
+						textType={textTypes.text}
 						textColor='linkText'
 					>
 						Registrate

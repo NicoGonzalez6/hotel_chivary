@@ -7,8 +7,9 @@ import Text from '../../components/atoms/Text/Text';
 import UserMenu from '../../assets/icons/user.png';
 import Sidenav from '../sidenav/Sidenav';
 import { Animated } from 'react-native';
+import { textTypes } from '../../constants/types/textTypes';
 
-const Header = ({ userInfo }) => {
+const Header = ({ userInfo, navigation }) => {
 	const [fadeAnimation] = useState(new Animated.Value(0));
 	const [indexAnimation] = useState(new Animated.Value(0));
 	const [show, setShow] = useState(false);
@@ -63,6 +64,7 @@ const Header = ({ userInfo }) => {
 				userInfo={userInfo}
 				onClose={closeHandler}
 				show={show}
+				navigation={navigation}
 			/>
 
 			<StyledMenu>
@@ -76,7 +78,7 @@ const Header = ({ userInfo }) => {
 					<StyledImage source={BarsMenu} />
 				</Touchable>
 
-				<Text textType='text' textColor='white'>{`Hola ${
+				<Text textType={textTypes.subtitle} textColor='white'>{`Hola ${
 					userInfo.userName || userInfo.name
 				}!`}</Text>
 			</StyledMenu>
